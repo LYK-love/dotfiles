@@ -1,0 +1,1 @@
+/home/lyk/.p10k.zsh
