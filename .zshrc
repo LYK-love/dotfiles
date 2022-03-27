@@ -9,7 +9,21 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/lyk/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
+
+
+
+# jdk 版本切换， on mac
+# jdk-17.0.2.jdk   jdk1.8.0_321.jdk jdk-11.0.14.jdk 
+export JAVA_8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_321.jdk/Contents/Home
+export JAVA_11_HOME=/Library/Java/JavaVirtualMachines/jdk-11.0.14.jdk/Contents/Home
+export JAVA_17_HOME=/Library/Java/JavaVirtualMachines/jdk-17.0.2.jdk/Contents/Home
+
+
+
+alias jdk8='export JAVA_HOME=$JAVA_8_HOME'
+alias jdk11='export JAVA_HOME=$JAVA_11_HOME'
+alias jdk17='export JAVA_HOME=$JAVA_17_HOME'
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -77,7 +91,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colored-man-pages colorize cp man command-not-found sudo ubuntu archlinux zsh-navigation-tools z extract history-substring-search python zsh-syntax-highlighting zsh-autosuggestions ) 
+plugins=(git zsh-autosuggestions )
 
 source $ZSH/oh-my-zsh.sh
 
@@ -107,47 +121,25 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-## 输入法，ibus和fcitx
-# export GTK_IM_MODULE=fcitx
-# export QT_IM_MODULE=fcitx
-# export QT4_IM_MODULE=fcitx
-# export XMODIFIERS=@im=fcitx
-export PATH=$PATH:/home/lyk/Tools/pycharm/bin
-
-alias cls='clear'
-
-## 安装trash-cli
-## trash-cli 常用功能
-## trash-put 将文件或目录移入回收站
-## trash-empty 清空回收站
-## trash-list 列出回收站中的文件
-## trash-restore 还原回收站中的文件
-## trash-rm 删除回首站中的单个文件
-# alias rm='trash-put'
-# alias rmclean='trash-empty'
-# alias rmrest='trash-restore'
-# alias rmlist='trash-list'
-# alias rmrm='trash-rm'
-
-## 安装 zsh-syntax-highlighting 不同发行版安装位置不同修改路径
-# source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-## 安装 zsh-autosuggestions 不同发行版安装位置不同修改路径
-# source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-## 修改提示字符颜色
-# ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=cyan"
-
-# ssh登陆 ECS （lyk@IP）
-alias tx='ssh lyk@124.222.135.47'
-alias ali='ssh lyk@123.56.20.222'
-alias se='ssh lyk@47.96.238.162'
-alias cl_tx='ssh lyk@124.222.220.22'
-# alias ldl_ali='ssh lyk@'
-
-
-#export PATH=$PATH:/home/lyk/anaconda3/bin
-source /opt/miniconda/etc/profile.d/conda.sh
+# zsh-syntax-highlighting
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-source /usr/share/nvm/init-nvm.sh
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.cloud.tencent.com/homebrew-bottles
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/lyk/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/lyk/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/lyk/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/lyk/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
