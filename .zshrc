@@ -121,6 +121,10 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Server Alias
+alias tx="ssh lyk@124.222.135.47"
+alias ali="ssh lyk@123.56.20.222"
+
 # zsh-syntax-highlighting
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
